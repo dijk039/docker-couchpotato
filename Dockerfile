@@ -19,9 +19,9 @@ RUN apk -U upgrade && \
 
 VOLUME ["/config", "/data"]
 
-ADD start.sh /tmp/start.sh
-RUN cp -r /tmp/start.sh / && rm -r start.sh
-RUN chmod u+x  /start.sh
+ADD ./start.sh /tmp/start.sh
+RUN chmod u+x /tmp/start.sh
+RUN cp /tmp/start.sh / && rm -f start.sh
 
 EXPOSE 5050
 
