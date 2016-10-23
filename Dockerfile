@@ -5,8 +5,6 @@ ENV LANG='en_US.UTF-8' \
     LANGUAGE='en_US.UTF-8' \
     TERM='xterm'
 
-ADD start.sh /start.sh
-
 RUN apk -U upgrade && \
     apk -U add \
         ca-certificates git python py-libxml2 py-lxml py2-pip  \
@@ -21,6 +19,8 @@ RUN apk -U upgrade && \
 
 VOLUME ["/config", "/data"]
 
+ADD start.sh /tmp/start.sh
+RUN cp -r /tmp/start.sh / && rm -r start.sh
 RUN chmod u+x  /start.sh
 
 EXPOSE 5050
