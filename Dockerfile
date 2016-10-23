@@ -5,7 +5,7 @@ ENV LANG='en_US.UTF-8' \
     LANGUAGE='en_US.UTF-8' \
     TERM='xterm'
 
-ADD ./start.sh /start.sh
+ADD start.sh /start.sh
 
 RUN apk -U upgrade && \
     apk -U add \
